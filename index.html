@@ -11,7 +11,7 @@
         :root {
             --bg-color: #FFFFFF;
             --text-color: #0A192F;
-            --accent-color: #112240;
+            --accent-jbl: #FF6600; /* Naranja estilo JBL */
             --subtle-text: #5A677A;
             --light-bg: #F9FAFB;
             --font-main: 'Montserrat', sans-serif;
@@ -21,61 +21,43 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: var(--font-main); color: var(--text-color); background: var(--bg-color); line-height: 1.7; }
         
-        /* --- NAVEGACIÓN --- */
         header { padding: 30px 8%; display: flex; justify-content: space-between; align-items: center; background: white; border-bottom: 1px solid #EEE; position: sticky; top: 0; z-index: 1000; }
         .logo { font-size: 1.8rem; font-family: var(--font-serif); text-transform: uppercase; letter-spacing: 2px; line-height: 0.9; cursor: pointer; }
         .logo span { display: block; font-family: var(--font-main); font-size: 0.65rem; letter-spacing: 6px; font-weight: 300; color: var(--subtle-text); margin-top: 5px; }
         
-        .nav-right { display: flex; align-items: center; gap: 25px; }
-        .search-box { border: 1px solid #EEE; padding: 8px 15px; font-family: var(--font-main); font-size: 0.75rem; outline: none; width: 150px; transition: 0.4s; }
-        .search-box:focus { width: 220px; border-color: var(--text-color); }
+        .nav-right { display: flex; align-items: center; gap: 20px; }
         .social-nav a { color: var(--text-color); font-size: 1.1rem; transition: 0.3s; opacity: 0.7; margin-left: 10px; }
-        .social-nav a:hover { opacity: 1; transform: translateY(-2px); }
 
-        /* --- HERO --- */
-        .hero {
-            height: 85vh;
-            background: linear-gradient(rgba(10, 25, 47, 0.4), rgba(10, 25, 47, 0.6)), url('mi-portada.jpg') center/cover no-repeat;
-            display: flex; align-items: center; justify-content: center; text-align: center; color: white;
-        }
-        .hero p { font-size: 0.9rem; letter-spacing: 6px; text-transform: uppercase; font-weight: 300; margin-bottom: 10px; }
-        .hero h1 { font-size: 4.5rem; font-family: var(--font-serif); font-weight: 400; letter-spacing: -1px; }
+        /* --- SECCIONES --- */
+        .hero { height: 70vh; background: linear-gradient(rgba(10,25,47,0.4), rgba(10,25,47,0.6)), url('mi-portada.jpg') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
+        .hero h1 { font-size: 4rem; font-family: var(--font-serif); font-weight: 400; }
 
-        /* --- SOBRE MÍ --- */
-        .about-section { padding: 100px 8%; background: var(--light-bg); display: flex; align-items: center; gap: 70px; flex-wrap: wrap; }
-        .about-img { flex: 1; min-width: 320px; }
-        .about-img img { width: 100%; filter: grayscale(100%); border: 1px solid #ddd; padding: 12px; background: white; transition: 0.5s; }
-        .about-img:hover img { filter: grayscale(0%); }
-        .about-text { flex: 1.5; min-width: 320px; }
-        .about-text h2 { font-size: 2.5rem; font-family: var(--font-serif); margin-bottom: 25px; }
-        .about-text p { font-size: 1.1rem; color: var(--subtle-text); margin-bottom: 15px; }
-
-        /* --- GRID PRINCIPAL --- */
-        .section-container { padding: 80px 8%; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-family: var(--font-serif); font-size: 2.2rem; text-transform: uppercase; letter-spacing: 5px; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .about-section { padding: 80px 8%; background: var(--light-bg); display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
+        .about-img img { width: 100%; max-width: 400px; filter: grayscale(100%); border: 1px solid #ddd; padding: 10px; background: white; }
         
-        .folder-card { position: relative; height: 500px; overflow: hidden; cursor: pointer; background: black; }
-        .folder-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.75; transition: 0.8s; }
-        .folder-card:hover img { transform: scale(1.05); opacity: 0.5; }
-        .folder-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px; color: white; background: linear-gradient(transparent, rgba(0,0,0,0.8)); }
-        .folder-overlay h3 { font-size: 1.6rem; font-family: var(--font-serif); letter-spacing: 1px; }
+        .section-container { padding: 80px 8%; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+        .folder-card { position: relative; height: 450px; overflow: hidden; cursor: pointer; background: black; }
+        .folder-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: 0.5s; }
+        .folder-card:hover img { transform: scale(1.05); opacity: 0.6; }
 
-        /* --- REGIONES --- */
-        .region-block { margin-bottom: 80px; }
-        .region-title { font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 25px; border-left: 3px solid var(--text-color); padding-left: 20px; }
-        .mini-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
-        .mini-grid img { width: 100%; height: 160px; object-fit: cover; cursor: pointer; }
-        .more-btn { display: inline-block; margin-top: 20px; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; cursor: pointer; color: var(--subtle-text); border-bottom: 1px solid #CCC; }
+        /* --- MODAL DE PREVISUALIZACIÓN Y COMPRA --- */
+        .modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); overflow-y: auto; }
+        .modal-content { max-width: 1100px; margin: 40px auto; background: white; display: flex; flex-wrap: wrap; position: relative; }
+        .modal-close { position: absolute; top: -40px; right: 0; color: white; font-size: 2rem; cursor: pointer; }
+        .modal-img { flex: 1.5; min-width: 300px; background: #000; }
+        .modal-img img { width: 100%; height: 100%; object-fit: contain; }
+        .modal-info { flex: 1; min-width: 300px; padding: 40px; color: var(--text-color); }
+        .btn-buy { background: var(--accent-jbl); color: white; border: none; padding: 15px 30px; width: 100%; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; margin-top: 20px; transition: 0.3s; }
+        .btn-buy:hover { background: #e65c00; }
 
-        /* --- FOOTER --- */
-        footer { padding: 80px 8% 40px; background: #050d1a; color: white; text-align: center; }
-        .footer-socials { margin-bottom: 30px; }
-        .footer-socials a { color: white; font-size: 1.4rem; margin: 0 15px; opacity: 0.6; transition: 0.3s; }
-        .footer-socials a:hover { opacity: 1; }
-        .rights-box { padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; opacity: 0.5; letter-spacing: 1px; text-transform: uppercase; }
+        /* --- SECCIÓN CONTACTO --- */
+        .contact-section { padding: 80px 8%; background: white; text-align: center; border-top: 1px solid #EEE; }
+        .contact-form { max-width: 600px; margin: 40px auto; text-align: left; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ddd; font-family: var(--font-main); }
+        .btn-submit { background: var(--text-color); color: white; border: none; padding: 15px 40px; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; }
 
+        footer { padding: 60px 8%; background: #050d1a; color: white; text-align: center; }
         #sub-view, #full-view { display: none; }
     </style>
 </head>
@@ -84,105 +66,92 @@
     <header>
         <div class="logo" onclick="location.reload()">Gino Tuesta <span>Photographer</span></div>
         <div class="nav-right">
-            <input type="text" id="search" class="search-box" placeholder="BUSCAR..." onkeypress="handleSearch(event)">
             <div class="social-nav">
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 <a href="mailto:gino@tuesta.com"><i class="far fa-envelope"></i></a>
             </div>
         </div>
     </header>
 
     <main id="home-view">
-        <section class="hero">
-            <div class="hero-content">
-                <p>Fotografía de conservación</p>
-                <h1>Enfoque Natural</h1>
-            </div>
-        </section>
+        <section class="hero"><h1>Enfoque Natural</h1></section>
 
         <section class="about-section">
-            <div class="about-img"><img src="mi-mirada.jpg" alt="Gino Tuesta"></div>
+            <div class="about-img"><img src="mi-mirada.jpg"></div>
             <div class="about-text">
                 <h2>Sobre mí</h2>
-                <p>
-                    Fotógrafo de conservación apasionado por retratar la riqueza natural del Perú. Mi trabajo une la divulgación científica con la experiencia en áreas naturales protegidas, transformando el conocimiento técnico en imágenes que conectan, inspiran y generan conciencia.
-                </p>
-                <p>
-                    A través de la fotografía, busco visibilizar nuestros ecosistemas y aportar activamente a su valoración y protección.
-                </p>
+                <p>Fotógrafo de conservación apasionado por retratar la riqueza natural del Perú. Mi trabajo une la divulgación científica con la experiencia en áreas naturales protegidas.</p>
+                <p>A través de la fotografía, busco visibilizar nuestros ecosistemas y aportar activamente a su valoración y protección.</p>
             </div>
         </section>
 
         <section class="section-container" id="folders">
-            <div class="section-header"><h2>Colecciones</h2></div>
             <div class="gallery-grid">
-                <div class="folder-card" onclick="openSub('Paisajes')">
-                    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800">
-                    <div class="folder-overlay"><span>Explorar</span><h3>Paisajes</h3></div>
-                </div>
-                <div class="folder-card" onclick="openSub('Animales')">
-                    <img src="https://images.unsplash.com/photo-1543946207-39bd91e70ca7?q=80&w=800">
-                    <div class="folder-overlay"><span>Explorar</span><h3>Animales</h3></div>
-                </div>
-                <div class="folder-card" onclick="openSub('Personas')">
-                    <img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=800">
-                    <div class="folder-overlay"><span>Explorar</span><h3>Personas</h3></div>
-                </div>
-                <div class="folder-card" onclick="openSub('Aérea')">
-                    <img src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?q=80&w=800">
-                    <div class="folder-overlay"><span>Explorar</span><h3>Aérea</h3></div>
-                </div>
+                <div class="folder-card" onclick="openSub('Paisajes')"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800"><div style="position:absolute; bottom:20px; left:20px; color:white;"><h3>Paisajes</h3></div></div>
+                <div class="folder-card" onclick="openSub('Animales')"><img src="https://images.unsplash.com/photo-1543946207-39bd91e70ca7?q=80&w=800"><div style="position:absolute; bottom:20px; left:20px; color:white;"><h3>Animales</h3></div></div>
+                <div class="folder-card" onclick="openSub('Personas')"><img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=800"><div style="position:absolute; bottom:20px; left:20px; color:white;"><h3>Personas</h3></div></div>
+            </div>
+        </section>
+
+        <section class="contact-section" id="contacto">
+            <h2 style="font-family: var(--font-serif); font-size: 2.5rem;">Contacto & Consultas</h2>
+            <p style="color: var(--subtle-text); margin-top: 10px;">¿Interesado en una licencia o proyecto de conservación? Escríbeme.</p>
+            <div class="contact-form">
+                <input type="text" placeholder="Nombre completo">
+                <input type="email" placeholder="Correo electrónico">
+                <textarea rows="5" placeholder="¿En qué puedo ayudarte?"></textarea>
+                <button class="btn-submit">Enviar consulta</button>
             </div>
         </section>
     </main>
 
     <section id="sub-view" class="section-container">
-        <div class="more-btn" onclick="location.reload()" style="margin-bottom:40px">← Volver</div>
-        <h2 id="cat-title" style="font-family: var(--font-serif); font-size: 2.8rem; margin-bottom: 50px;"></h2>
+        <div style="cursor:pointer; margin-bottom:30px;" onclick="location.reload()">← Volver</div>
+        <h2 id="cat-title" style="font-family: var(--font-serif); font-size: 2.8rem; margin-bottom:40px;"></h2>
         <div id="region-list"></div>
     </section>
 
     <section id="full-view" class="section-container">
-        <div class="more-btn" id="btn-back" style="margin-bottom:40px">← Volver</div>
-        <h2 id="full-title" style="font-family: var(--font-serif); font-size: 2.2rem; margin-bottom: 40px;"></h2>
+        <div style="cursor:pointer; margin-bottom:30px;" id="btn-back-reg">← Regresar</div>
+        <h2 id="full-title" style="font-family: var(--font-serif); font-size: 2.5rem; margin-bottom:40px;"></h2>
         <div class="gallery-grid" id="full-grid"></div>
     </section>
 
+    <div id="photoModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div class="modal-img"><img id="img-zoom" src=""></div>
+            <div class="modal-info">
+                <h3 id="photo-title" style="font-family: var(--font-serif); font-size: 1.8rem;">Fotografía de Archivo</h3>
+                <p style="margin: 20px 0; color: var(--subtle-text);">Esta imagen está protegida por derechos de autor. Puedes adquirir una licencia de uso directo para tus proyectos.</p>
+                <div style="border-top: 1px solid #eee; padding-top: 20px;">
+                    <p>Licencia Digital: <strong>$15.00</strong></p>
+                    <p>Licencia Editorial: <strong>$50.00</strong></p>
+                    <button class="btn-buy">Adquirir Licencia</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer>
-        <div class="footer-socials">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="mailto:gino@tuesta.com"><i class="far fa-envelope"></i></a>
-        </div>
-        <div class="rights-box">
-            <p>&copy; 2026 Gino Tuesta Photographer. Todos los derechos reservados.</p>
-            <p>Prohibida la reproducción de las imágenes sin autorización del autor.</p>
-        </div>
+        <p>&copy; 2026 Gino Tuesta Photographer. Todos los derechos reservados.</p>
     </footer>
 
     <script>
-        const regions = ['Costa', 'Sierra', 'Selva'];
-        const stock = "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=400";
-
+        const stock = "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=600";
+        
         function openSub(cat) {
             document.getElementById('home-view').style.display = 'none';
-            document.getElementById('full-view').style.display = 'none';
             document.getElementById('sub-view').style.display = 'block';
             document.getElementById('cat-title').innerText = cat;
             const list = document.getElementById('region-list');
             list.innerHTML = '';
-            regions.forEach(reg => {
-                list.innerHTML += `
-                    <div class="region-block">
-                        <h3 class="region-title">${reg}</h3>
-                        <div class="mini-grid">${Array(5).fill(`<img src="${stock}&sig=${Math.random()}">`).join('')}</div>
-                        <span class="more-btn" onclick="openFull('${cat}', '${reg}')">Ver archivo completo →</span>
-                    </div>`;
+            ['Costa', 'Sierra', 'Selva'].forEach(reg => {
+                list.innerHTML += `<div style="margin-bottom:60px;"><h3>${reg}</h3><div style="display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-top:20px;">
+                    ${Array(5).fill(`<img src="${stock}&sig=${Math.random()}" style="width:100%; height:120px; object-fit:cover; cursor:pointer;" onclick="previewPhoto(this.src)">`).join('')}
+                </div><span style="cursor:pointer; font-size:0.7rem; letter-spacing:2px; display:block; margin-top:10px;" onclick="openFull('${cat}', '${reg}')">VER MÁS →</span></div>`;
             });
-            window.scrollTo(0,0);
         }
 
         function openFull(cat, reg) {
@@ -192,20 +161,18 @@
             const grid = document.getElementById('full-grid');
             grid.innerHTML = '';
             for(let i=1; i<=10; i++) {
-                grid.innerHTML += `<div class="folder-card" style="height:350px"><img src="${stock}&sig=${i}"></div>`;
+                grid.innerHTML += `<div class="folder-card" onclick="previewPhoto('${stock}&sig=${i}')"><img src="${stock}&sig=${i}"></div>`;
             }
-            document.getElementById('btn-back').onclick = () => openSub(cat);
-            window.scrollTo(0,0);
+            document.getElementById('btn-back-reg').onclick = () => openSub(cat);
         }
 
-        function handleSearch(e) {
-            if (e.key === 'Enter') {
-                const q = document.getElementById('search').value.toLowerCase();
-                if(q.includes('animal') || q.includes('jaguar')) { openSub('Animales'); }
-                else if(q.includes('paisaje')) { openSub('Paisajes'); }
-                else { alert('Buscando coincidencias...'); }
-            }
+        function previewPhoto(url) {
+            document.getElementById('photoModal').style.display = 'block';
+            document.getElementById('img-zoom').src = url;
         }
+
+        function closeModal() { document.getElementById('photoModal').style.display = 'none'; }
+        window.onclick = (e) => { if(e.target == document.getElementById('photoModal')) closeModal(); }
     </script>
 </body>
 </html>
