@@ -207,35 +207,35 @@
 
     <script>
         const stock = "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=800";
-       function openSub(cat) {
-    document.getElementById('home-view').style.display = 'none';
-    document.getElementById('sub-view').style.display = 'block';
-    document.getElementById('cat-title').innerText = cat;
-    const list = document.getElementById('region-list');
-    list.innerHTML = '';
-    
-    // Aquí definimos las regiones: Costa, Sierra y Selva
-    ['Costa', 'Sierra', 'Selva'].forEach(reg => {
-        const catFolder = cat.toLowerCase(); // será "animales"
-        const regFile = reg.toLowerCase();   // será "selva" cuando llegue a esa parte
-        
-        list.innerHTML += `
-            <div style="margin-bottom:60px;">
-                <h3 style="font-family:var(--font-serif); font-size:1.8rem; margin-bottom:20px;">${reg}</h3>
-                <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:10px;">
-                    ${[1, 2, 3, 4, 5].map(num => `
-                        <img src="galeria/${catFolder}/${regFile}-${num}.jpg" 
-                             style="width:100%; height:140px; object-fit:cover; cursor:pointer;" 
-                             onclick="openPreview(this.src)" 
-                             onerror="this.src='https://via.placeholder.com/400?text=Subir+${reg}+${num}'">
-                    `).join('')}
-                </div>
-                <span style="cursor:pointer; font-size:0.7rem; letter-spacing:2px; display:block; margin-top:15px;" 
-                      onclick="openFull('${cat}', '${reg}')">VER ARCHIVO COMPLETO →</span>
-            </div>`;
-    });
-    window.scrollTo(0,0);
-}
+        function openSub(cat) {
+            document.getElementById('home-view').style.display = 'none';
+            document.getElementById('sub-view').style.display = 'block';
+            document.getElementById('cat-title').innerText = cat;
+            const list = document.getElementById('region-list');
+            list.innerHTML = '';
+            ['Costa', 'Sierra', 'Selva'].forEach(reg => {
+                list.innerHTML += `<div style="margin-bottom:60px;"><h3 style="font-family:var(--font-serif); font-size:1.8rem; margin-bottom:20px;">${reg}</h3><div style="display:grid; grid-template-columns:repeat(5,1fr); gap:10px;">
+                ${Array(5).fill(`<img src="${stock}&sig=${Math.random()}" style="width:100%; height:140px; object-fit:cover; cursor:pointer;" onclick="openPreview(this.src)">`).join('')}</div>
+                <span style="cursor:pointer; font-size:0.7rem; letter-spacing:2px; display:block; margin-top:15px;" onclick="openFull('${cat}', '${reg}')">VER TODO →</span></div>`;
+            });
+            window.scrollTo(0,0);
+        }
+        function openFull(cat, reg) {
+            document.getElementById('sub-view').style.display = 'none';
+            document.getElementById('full-view').style.display = 'block';
+            document.getElementById('full-title').innerText = `${cat}: ${reg}`;
+            const grid = document.getElementById('full-grid');
+            grid.innerHTML = '';
+            for(let i=1; i<=10; i++) { grid.innerHTML += `<div class="folder-card" style="height:350px" onclick="openPreview('${stock}&sig=${i}')"><img src="${stock}&sig=${i}"></div>`; }
+            document.getElementById('btn-back-reg').onclick = () => openSub(cat);
+            window.scrollTo(0,0);
+        }
+        function openPreview(url) {
+            document.getElementById('photoModal').style.display = 'block';
+            document.getElementById('modal-img').src = url;
+        }
+        function closeModal() { document.getElementById('photoModal').style.display = 'none'; }
+        function handleSearch(e) { if (e.key === 'Enter') { alert('Buscando...'); } }
     </script>
 </body>
 </html>
