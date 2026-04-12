@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gino Tuesta Photographer | Portafolio Profesional</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <title>Gino Tuesta | Biología & Narrativa Visual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
@@ -12,52 +12,74 @@
             --bg-color: #FFFFFF;
             --text-color: #0A192F;
             --accent-color: #112240;
-            --subtle-text: #4A5568;
-            --light-gray: #E2E8F0;
+            --subtle-text: #5A677A;
+            --light-bg: #F9FAFB;
             --font-main: 'Montserrat', sans-serif;
             --font-serif: 'Playfair Display', serif;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: var(--font-main); color: var(--text-color); background: var(--bg-color); scroll-behavior: smooth; }
+        body { font-family: var(--font-main); color: var(--text-color); background: var(--bg-color); line-height: 1.7; }
         
-        /* --- CABECERA Y LOGO --- */
-        header { padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; background: white; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--light-gray); }
-        .logo { font-size: 1.6rem; font-family: var(--font-serif); text-transform: uppercase; line-height: 1; cursor: pointer; }
-        .logo span { display: block; font-family: var(--font-main); font-size: 0.6rem; letter-spacing: 6px; font-weight: 300; margin-top: 5px; color: var(--subtle-text); }
-        .social-nav a { margin-left: 15px; color: var(--text-color); font-size: 1.2rem; transition: 0.3s; }
+        /* --- NAVEGACIÓN --- */
+        header { padding: 30px 8%; display: flex; justify-content: space-between; align-items: center; background: white; border-bottom: 1px solid #EEE; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 1.8rem; font-family: var(--font-serif); text-transform: uppercase; letter-spacing: 2px; line-height: 0.9; }
+        .logo span { display: block; font-family: var(--font-main); font-size: 0.65rem; letter-spacing: 6px; font-weight: 300; color: var(--subtle-text); margin-top: 5px; }
+        .social-nav a { margin-left: 20px; color: var(--text-color); font-size: 1.1rem; transition: 0.3s; opacity: 0.7; }
+        .social-nav a:hover { opacity: 1; transform: translateY(-2px); }
 
-        /* --- PORTADA (HERO) --- */
+        /* --- PORTADA REFINADA --- */
         .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(10, 25, 47, 0.5), rgba(10, 25, 47, 0.7)), url('mi-portada.jpg') center/cover no-repeat;
+            height: 90vh;
+            background: linear-gradient(rgba(10, 25, 47, 0.4), rgba(10, 25, 47, 0.6)), url('mi-portada.jpg') center/cover no-repeat;
             display: flex; align-items: center; justify-content: center; text-align: center; color: white;
         }
-        .hero h1 { font-size: 3.5rem; font-family: var(--font-serif); margin-bottom: 20px; }
-        .btn { display: inline-block; padding: 15px 35px; background: white; color: var(--text-color); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; transition: 0.3s; border: none; cursor: pointer; }
-        .btn:hover { background: var(--accent-color); color: white; }
+        .hero h1 { font-size: 4.5rem; font-family: var(--font-serif); font-weight: 400; letter-spacing: -2px; }
+        .hero p { font-size: 1.1rem; font-weight: 300; letter-spacing: 4px; text-transform: uppercase; margin-top: 10px; }
+        .btn-scroll { margin-top: 40px; background: white; color: var(--text-color); padding: 15px 40px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; font-weight: 600; text-decoration: none; transition: 0.3s; border: 1px solid white; }
+        .btn-scroll:hover { background: transparent; color: white; }
 
-        /* --- CONTENEDORES --- */
-        .container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
-        .section-title { text-align: center; font-size: 2rem; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 3px; font-family: var(--font-serif); }
+        /* --- SECCIÓN SOBRE MI MIRADA (ESTILO EDITORIAL) --- */
+        .about-section { padding: 120px 8%; background: var(--light-bg); display: flex; align-items: center; gap: 80px; flex-wrap: wrap; }
+        .about-img { flex: 1; min-width: 350px; position: relative; }
+        .about-img img { width: 100%; filter: grayscale(100%); transition: 0.5s; }
+        .about-img:hover img { filter: grayscale(0%); }
+        .about-text { flex: 1.5; min-width: 350px; }
+        .about-text h2 { font-size: 2.8rem; font-family: var(--font-serif); margin-bottom: 30px; position: relative; }
+        .about-text h2::after { content: ''; display: block; width: 50px; height: 1px; background: var(--text-color); margin-top: 15px; }
+        .about-text p { font-size: 1.1rem; color: var(--subtle-text); margin-bottom: 25px; max-width: 600px; }
 
-        /* --- GRID DE CATEGORÍAS --- */
-        .main-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .card { border: 1px solid var(--light-gray); cursor: pointer; background: white; overflow: hidden; position: relative; }
-        .card img { width: 100%; height: 350px; object-fit: cover; transition: 0.5s; }
-        .card:hover img { transform: scale(1.05); }
-        .card-label { padding: 20px; text-align: center; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* --- VISTAS INTERNAS --- */
-        #folder-view, #buy-view { display: none; }
-        .back-link { cursor: pointer; display: inline-block; margin-bottom: 20px; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: var(--subtle-text); }
-        .img-preview { position: relative; border: 1px solid var(--light-gray); overflow: hidden; }
-        .watermark { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; pointer-events: none; opacity: 0.2; transform: rotate(-30deg); font-size: 3rem; font-weight: bold; color: #000; text-transform: uppercase; white-space: nowrap; }
-        .buy-container { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+        /* --- COLECCIONES --- */
+        .section-container { padding: 100px 8%; }
+        .section-header { text-align: center; margin-bottom: 70px; }
+        .section-header h2 { font-family: var(--font-serif); font-size: 2.5rem; text-transform: uppercase; letter-spacing: 4px; }
+        
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .folder-card { position: relative; height: 500px; overflow: hidden; cursor: pointer; background: black; }
+        .folder-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: 0.8s cubic-bezier(0.2, 1, 0.3, 1); }
+        .folder-card:hover img { transform: scale(1.1); opacity: 0.6; }
+        .folder-overlay { position: absolute; bottom: 40px; left: 40px; color: white; }
+        .folder-overlay h3 { font-size: 1.5rem; font-family: var(--font-serif); text-transform: uppercase; letter-spacing: 2px; }
+        .folder-overlay span { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.8; }
 
         /* --- FOOTER --- */
-        footer { background: #050d1a; color: white; padding: 60px 20px; text-align: center; }
-        .footer-socials a { color: white; font-size: 1.5rem; margin: 0 15px; }
+        footer { padding: 80px 8% 40px; background: #050d1a; color: white; text-align: center; }
+        .footer-logo { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 20px; }
+        .footer-socials { margin-bottom: 40px; }
+        .footer-socials a { color: white; font-size: 1.4rem; margin: 0 15px; opacity: 0.6; transition: 0.3s; }
+        .footer-socials a:hover { opacity: 1; }
+        .copy { font-size: 0.7rem; opacity: 0.4; letter-spacing: 1px; text-transform: uppercase; }
+
+        /* --- VISTA DE COMPRA --- */
+        #buy-view { display: none; padding: 60px 8%; background: white; min-height: 100vh; }
+        .buy-layout { display: grid; grid-template-columns: 1.5fr 1fr; gap: 60px; align-items: start; }
+        .back-btn { cursor: pointer; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 30px; display: inline-block; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .about-section { padding: 60px 5%; gap: 40px; }
+            .buy-layout { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -66,108 +88,112 @@
         <div class="logo" onclick="location.reload()">Gino Tuesta <span>Photographer</span></div>
         <div class="social-nav">
             <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:gino@tuesta.com"><i class="fas fa-envelope"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="mailto:gino@tuesta.com"><i class="far fa-envelope"></i></a>
         </div>
     </header>
 
-    <section class="hero" id="hero-main">
+    <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Explora el Mundo</h1>
-            <a href="#folders" class="btn">Ver Galerías</a>
+            <p>Biodiversidad & Conservación</p>
+            <h1>Mirada Amazónica</h1>
+            <a href="#folders" class="btn-scroll">Explorar Archivo</a>
         </div>
     </section>
 
-    <section id="about" style="background: #F7FAFC; border-bottom: 1px solid var(--light-gray); padding: 80px 20px;">
-        <div style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; align-items: center;">
-            <div style="border: 1px solid var(--light-gray); padding: 10px; background: white;">
-                <img src="mi-portada.jpg" alt="Gino Tuesta" style="width: 100%; display: block; filter: grayscale(100%);">
+    <section class="about-section">
+        <div class="about-img">
+            <img src="mi-portada.jpg" alt="Gino Tuesta">
+        </div>
+        <div class="about-text">
+            <h2>Sobre mi mirada</h2>
+            <p>Como fotógrafo documental y biólogo, integro narrativa visual en la generación de contenidos, aportando valor en procesos de estructuración y diseño de publicaciones.</p>
+            <p>Especializado en el uso de drones (UAV) y herramientas tecnológicas, busco capturar la esencia de los ecosistemas amazónicos para crear materiales que inspiren la protección del patrimonio natural.</p>
+        </div>
+    </section>
+
+    <section class="section-container" id="folders">
+        <div class="section-header">
+            <h2>Colecciones</h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="folder-card" onclick="openFolder('Paisajes')">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800">
+                <div class="folder-overlay"><span>Explorar</span><h3>Paisajes</h3></div>
             </div>
-            <div style="text-align: left;">
-                <h2 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px;">Sobre mi mirada</h2>
-                <p style="font-size: 1rem; color: var(--subtle-text); line-height: 1.8; margin-bottom: 15px;">
-                    Como fotógrafo documental, integro narrativa visual en la generación de contenidos, aportando valor en procesos de estructuración y diseño de publicaciones. Mi experiencia me permite traducir información técnica en mensajes claros, accesibles y orientados a la conservación de la biodiversidad.
-                </p>
-                <p style="font-size: 1rem; color: var(--subtle-text); line-height: 1.8;">
-                    Especializado en el uso de drones (UAV) y herramientas tecnológicas, busco capturar la esencia de los ecosistemas amazónicos para crear materiales comunicacionales de alto impacto que inspiren la protección del patrimonio natural.
-                </p>
+            <div class="folder-card" onclick="openFolder('Personas')">
+                <img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=800">
+                <div class="folder-overlay"><span>Explorar</span><h3>Personas</h3></div>
+            </div>
+            <div class="folder-card" onclick="openFolder('Animales')">
+                <img src="https://images.unsplash.com/photo-1543946207-39bd91e70ca7?q=80&w=800">
+                <div class="folder-overlay"><span>Explorar</span><h3>Animales</h3></div>
+            </div>
+            <div class="folder-card" onclick="openFolder('Aérea')">
+                <img src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?q=80&w=800">
+                <div class="folder-overlay"><span>Explorar</span><h3>Aérea</h3></div>
             </div>
         </div>
     </section>
 
-    <section class="container" id="folders">
-        <h2 class="section-title">Colecciones</h2>
-        <div class="main-grid">
-            <div class="card" onclick="openFolder('Paisajes')">
-                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800" alt="Paisajes">
-                <div class="card-label">Paisajes</div>
-            </div>
-            <div class="card" onclick="openFolder('Personas')">
-                <img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=800" alt="Personas">
-                <div class="card-label">Personas</div>
-            </div>
-            <div class="card" onclick="openFolder('Animales')">
-                <img src="https://images.unsplash.com/photo-1543946207-39bd91e70ca7?q=80&w=800" alt="Animales">
-                <div class="card-label">Animales</div>
-            </div>
-            <div class="card" onclick="openFolder('Aérea')">
-                <img src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?q=80&w=800" alt="Aérea">
-                <div class="card-label">Aérea</div>
-            </div>
-        </div>
+    <section id="folder-view" class="section-container">
+        <div class="back-btn" onclick="location.reload()">← Volver al archivo</div>
+        <h2 class="section-title" id="folder-title" style="text-align: left; margin-bottom: 50px;"></h2>
+        <div class="gallery-grid" id="folder-grid"></div>
     </section>
 
-    <section class="container" id="folder-view">
-        <span class="back-link" onclick="location.reload()">← Volver</span>
-        <h2 class="section-title" id="folder-title">Carpeta</h2>
-        <div class="main-grid" id="folder-grid"></div>
-    </section>
-
-    <section class="container" id="buy-view">
-        <span class="back-link" id="back-to-folder">← Volver</span>
-        <div class="buy-container">
+    <section id="buy-view">
+        <div class="back-btn" id="back-to-folder">← Regresar a la galería</div>
+        <div class="buy-layout">
             <div class="img-preview">
-                <div class="watermark">Gino Tuesta</div>
-                <img id="final-img" src="" style="width:100%">
+                <div class="watermark" style="font-size: 2rem;">Gino Tuesta</div>
+                <img id="final-img" src="" style="width: 100%; display: block;">
             </div>
-            <div class="price-box" style="padding: 20px; border: 1px solid var(--light-gray);">
-                <h3 id="photo-name" style="margin-bottom:20px;"></h3>
-                <p style="margin-bottom:10px;">Licencia Personal: <strong>$5.00</strong></p>
-                <p style="margin-bottom:20px;">Licencia Editorial: <strong>$50.00</strong></p>
-                <button class="btn" style="background:var(--accent-color); color:white; width:100%">Comprar</button>
+            <div class="buy-info">
+                <h3 id="photo-name" style="font-family: var(--font-serif); font-size: 2rem; margin-bottom: 30px;"></h3>
+                <div style="border-top: 1px solid #EEE; padding: 20px 0;">
+                    <p style="display: flex; justify-content: space-between;"><span>Licencia Personal</span><strong>$5.00</strong></p>
+                </div>
+                <div style="border-top: 1px solid #EEE; padding: 20px 0;">
+                    <p style="display: flex; justify-content: space-between;"><span>Licencia Editorial</span><strong>$50.00</strong></p>
+                </div>
+                <button class="btn-scroll" style="width: 100%; background: #0A192F; color: white; border: none; margin-top: 20px;">Contactar para Adquirir</button>
             </div>
         </div>
     </section>
 
     <footer>
+        <div class="footer-logo">Gino Tuesta</div>
         <div class="footer-socials">
             <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
-        <p style="margin-top:20px;">&copy; 2026 Gino Tuesta Photographer. Todos los derechos reservados.</p>
+        <p class="copy">&copy; 2026 Gino Tuesta. Todos los derechos reservados.</p>
     </footer>
 
     <script>
         const photoData = {
-            'Paisajes': 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=400',
-            'Personas': 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400',
-            'Animales': 'https://images.unsplash.com/photo-1472393365320-2c1f5a507850?q=80&w=400',
-            'Aérea': 'https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?q=80&w=400'
+            'Paisajes': 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=600',
+            'Personas': 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600',
+            'Animales': 'https://images.unsplash.com/photo-1472393365320-2c1f5a507850?q=80&w=600',
+            'Aérea': 'https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?q=80&w=600'
         };
 
         function openFolder(category) {
-            document.getElementById('hero-main').style.display = 'none';
-            document.getElementById('about').style.display = 'none';
-            document.getElementById('folders').style.display = 'none';
+            document.querySelectorAll('section').forEach(s => s.style.display = 'none');
+            document.querySelector('header').style.display = 'flex';
             document.getElementById('folder-view').style.display = 'block';
             document.getElementById('folder-title').innerText = category;
             const grid = document.getElementById('folder-grid');
             grid.innerHTML = '';
-            for(let i=1; i<=10; i++) {
-                const imgUrl = photoData[category] + '&sig=' + i;
-                grid.innerHTML += `<div class="card" onclick="openBuy('${imgUrl}', '${category} #${i}')"><img src="${imgUrl}" style="height:250px"></div>`;
+            for(let i=1; i<=12; i++) {
+                const url = photoData[category] + '&sig=' + i;
+                grid.innerHTML += `<div class="folder-card" style="height:350px" onclick="openBuy('${url}', '${category} No. ${i}')">
+                    <img src="${url}">
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:white; opacity:0.15; font-weight:bold; letter-spacing:5px;">GINO TUESTA</div>
+                </div>`;
             }
             window.scrollTo(0,0);
         }
