@@ -213,28 +213,12 @@
             document.getElementById('cat-title').innerText = cat;
             const list = document.getElementById('region-list');
             list.innerHTML = '';
-            
             ['Costa', 'Sierra', 'Selva'].forEach(reg => {
-                // AJUSTE DE RUTA: Ahora busca en "galeria/animales" directamente
-                const carpeta = `galeria/${cat.toLowerCase()}`;
-                
-                list.innerHTML += `
-                    <div style="margin-bottom:60px;">
-                        <h3 style="font-family:var(--font-serif); font-size:1.8rem; margin-bottom:20px;">${reg}</h3>
-                        <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:10px;">
-                            ${[1, 2, 3, 4, 5].map(num => `
-                                <img src="${carpeta}/${reg.toLowerCase()}-${num}.jpg" 
-                                     style="width:100%; height:140px; object-fit:cover; cursor:pointer;" 
-                                     onclick="openPreview(this.src)" 
-                                     onerror="this.src='https://via.placeholder.com/400?text=Subir+${reg}+${num}'">
-                            `).join('')}
-                        </div>
-                        <span style="cursor:pointer; font-size:0.7rem; letter-spacing:2px; display:block; margin-top:15px;" 
-                              onclick="openFull('${cat}', '${reg}')">VER ARCHIVO COMPLETO →</span>
-                    </div>`;
+                list.innerHTML += `<div style="margin-bottom:60px;"><h3 style="font-family:var(--font-serif); font-size:1.8rem; margin-bottom:20px;">${reg}</h3><div style="display:grid; grid-template-columns:repeat(5,1fr); gap:10px;">
+                ${Array(5).fill(`<img src="${stock}&sig=${Math.random()}" style="width:100%; height:140px; object-fit:cover; cursor:pointer;" onclick="openPreview(this.src)">`).join('')}</div>
+                <span style="cursor:pointer; font-size:0.7rem; letter-spacing:2px; display:block; margin-top:15px;" onclick="openFull('${cat}', '${reg}')">VER TODO →</span></div>`;
             });
             window.scrollTo(0,0);
-        }
         }
         function openFull(cat, reg) {
             document.getElementById('sub-view').style.display = 'none';
