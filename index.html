@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Gino Tuesta Photographer - Venta de fotografías de alta calidad: naturaleza, fauna, paisajes y cultura.">
-    <title>Gino Tuesta Photographer | Galerías y Licencias</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <title>Gino Tuesta Photographer | Portafolio Profesional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
@@ -20,152 +19,173 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: var(--font-main); color: var(--text-color); background-color: var(--bg-color); line-height: 1.6; overflow-x: hidden; }
-        h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; }
-        a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+        body { font-family: var(--font-main); color: var(--text-color); background: var(--bg-color); scroll-behavior: smooth; }
         
-        /* --- LOGO DINÁMICO --- */
-        .logo { 
-            font-size: 1.6rem; 
-            font-family: var(--font-serif); 
-            font-weight: 400; 
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            line-height: 1;
-        }
-        .logo span { 
-            display: block;
-            font-family: var(--font-main);
-            font-size: 0.6rem;
-            letter-spacing: 6px;
-            font-weight: 300;
-            margin-top: 5px;
-            color: var(--subtle-text);
-        }
+        /* --- LOGO --- */
+        .logo { font-size: 1.6rem; font-family: var(--font-serif); text-transform: uppercase; line-height: 1; cursor: pointer; }
+        .logo span { display: block; font-family: var(--font-main); font-size: 0.6rem; letter-spacing: 6px; font-weight: 300; margin-top: 5px; color: var(--subtle-text); }
 
         header { padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; background: white; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--light-gray); }
-        nav ul { list-style: none; display: flex; gap: 30px; }
-        nav a { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .social-nav a { margin-left: 15px; color: var(--text-color); font-size: 1.2rem; transition: 0.3s; }
+        .social-nav a:hover { color: var(--subtle-text); }
 
+        /* --- PORTADA (HERO) --- */
         .hero {
-            height: 60vh;
-            background: linear-gradient(rgba(10, 25, 47, 0.5), rgba(10, 25, 47, 0.7)), url('https://images.unsplash.com/photo-1500964757637-c85e8a162699?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+            height: 100vh;
+            background: linear-gradient(rgba(10, 25, 47, 0.5), rgba(10, 25, 47, 0.7)), url('tu-portada.jpg') center/cover no-repeat;
             display: flex; align-items: center; justify-content: center; text-align: center; color: white;
         }
-        .hero-content h1 { font-size: 3rem; margin-bottom: 15px; }
+        .hero h1 { font-size: 3.5rem; font-family: var(--font-serif); margin-bottom: 20px; }
+        .btn { display: inline-block; padding: 15px 35px; background: white; color: var(--text-color); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; transition: 0.3s; border: none; cursor: pointer; }
+        .btn:hover { background: var(--accent-color); color: white; }
 
-        .trust-bar { background-color: #F7FAFC; padding: 20px; text-align: center; border-bottom: 1px solid var(--light-gray); }
-        .trust-bar p { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--subtle-text); }
-
+        /* --- CONTENEDORES --- */
         .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
-        .section-title { text-align: center; font-size: 2rem; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 2px; }
+        .section-title { text-align: center; font-size: 2rem; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 3px; font-family: var(--font-serif); }
 
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        /* --- GRID DE PORTADAS Y FOTOS --- */
+        .main-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { border: 1px solid var(--light-gray); cursor: pointer; background: white; overflow: hidden; position: relative; }
+        .card img { width: 100%; height: 350px; object-fit: cover; transition: 0.5s; }
+        .card:hover img { transform: scale(1.05); }
+        .card-label { padding: 20px; text-align: center; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- VISTA DE CARPETA (10 FOTOS) --- */
+        #folder-view { display: none; }
+        .back-link { cursor: pointer; display: inline-block; margin-bottom: 20px; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: var(--subtle-text); }
+
+        /* --- VISTA DE COMPRA --- */
+        #buy-view { display: none; padding: 60px 20px; }
+        .buy-container { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+        .img-preview { position: relative; border: 1px solid var(--light-gray); overflow: hidden; }
+        .watermark { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; pointer-events: none; opacity: 0.2; transform: rotate(-30deg); font-size: 3rem; font-weight: bold; color: #000; text-transform: uppercase; white-space: nowrap; }
+
+        .price-box { padding: 30px; border: 1px solid var(--light-gray); }
+        .price-option { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid var(--light-gray); }
         
-        .category-card { border: 1px solid var(--light-gray); cursor: pointer; transition: all 0.3s; background: white; }
-        .category-card:hover { transform: translateY(-5px); border-color: var(--text-color); }
-        .card-img-wrapper { width: 100%; height: 300px; overflow: hidden; }
-        .card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
-        .category-card:hover img { transform: scale(1.05); }
-        .card-info { padding: 20px; text-align: center; }
-
-        /* --- VISTA DE DETALLE CON MARCA DE AGUA --- */
-        #photo-detail-view { display: none; padding: 40px 20px; background: #fafafa; }
-        .detail-container { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; }
-        
-        .detail-img-holder { position: relative; border: 1px solid var(--light-gray); background: white; padding: 10px; overflow: hidden; }
-        .watermark {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            display: flex; align-items: center; justify-content: center;
-            pointer-events: none; opacity: 0.2; z-index: 5;
-        }
-        .watermark-text {
-            font-size: 2.5rem; font-weight: bold; color: #000;
-            text-transform: uppercase; transform: rotate(-30deg); white-space: nowrap;
-        }
-
-        .price-item { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid var(--light-gray); }
-        .btn { display: block; width: 100%; padding: 15px; background: var(--accent-color); color: white; text-align: center; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; border: none; cursor: pointer; margin-top: 20px; }
-
-        footer { background: #050d1a; color: white; padding: 40px 20px; text-align: center; font-size: 0.8rem; margin-top: 50px; }
+        /* --- FOOTER --- */
+        footer { background: #050d1a; color: white; padding: 60px 20px; text-align: center; }
+        .footer-socials { margin-bottom: 30px; }
+        .footer-socials a { color: white; font-size: 1.5rem; margin: 0 15px; transition: 0.3s; }
+        .footer-socials a:hover { color: #8892b0; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">Gino Tuesta <span>Photographer</span></div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Galerías</a></li>
-                <li><a href="mailto:gino@tuesta.com">Contacto</a></li>
-            </ul>
-        </nav>
+        <div class="logo" onclick="location.reload()">Gino Tuesta <span>Photographer</span></div>
+        <div class="social-nav">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:tuemail@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
     </header>
 
-    <section class="hero" id="inicio">
+    <section class="hero" id="hero-main">
         <div class="hero-content">
-            <h1>Capturando la Esencia</h1>
-            <a href="#galerias" class="btn" style="width: auto; display: inline-block;">Explorar</a>
+            <h1>Gino Tuesta</h1>
+            <a href="#folders" class="btn">Explorar Galerías</a>
         </div>
     </section>
 
-    <div class="trust-bar"><p>15 años de conservación • Licencias Profesionales</p></div>
-
-    <section class="container" id="galerias">
-        <h2 class="section-title">Colecciones</h2>
-        <div class="gallery-grid">
-            <div class="category-card" onclick="showPhotoDetail('Paisajes', 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=800', 'Montañas del Sur')">
-                <div class="card-img-wrapper"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=800"></div>
-                <div class="card-info"><h3>Paisajes</h3></div>
+    <section class="container" id="folders">
+        <h2 class="section-title">Categorías</h2>
+        <div class="main-grid">
+            <div class="card" onclick="openFolder('Paisajes')">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800" alt="Paisajes">
+                <div class="card-label">Paisajes</div>
             </div>
-            <div class="category-card" onclick="showPhotoDetail('Personas', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800', 'Retrato Cultural')">
-                <div class="card-img-wrapper"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800"></div>
-                <div class="card-info"><h3>Personas</h3></div>
+            <div class="card" onclick="openFolder('Personas')">
+                <img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=800" alt="Personas">
+                <div class="card-label">Personas</div>
             </div>
-            <div class="category-card" onclick="showPhotoDetail('Animales', 'https://images.unsplash.com/photo-1546182990-dffeafbe841d?q=80&w=800', 'Majestuosidad Salvaje')">
-                <div class="card-img-wrapper"><img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?q=80&w=800"></div>
-                <div class="card-info"><h3>Animales</h3></div>
+            <div class="card" onclick="openFolder('Animales')">
+                <img src="https://images.unsplash.com/photo-1543946207-39bd91e70ca7?q=80&w=800" alt="Animales">
+                <div class="card-label">Animales</div>
             </div>
-            <div class="category-card" onclick="showPhotoDetail('Aérea', 'https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?q=80&w=800', 'Venas de la Tierra')">
-                <div class="card-img-wrapper"><img src="https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?q=80&w=800"></div>
-                <div class="card-info"><h3>Aérea</h3></div>
+            <div class="card" onclick="openFolder('Aérea')">
+                <img src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?q=80&w=800" alt="Aérea">
+                <div class="card-label">Aérea</div>
             </div>
         </div>
     </section>
 
-    <section id="photo-detail-view">
-        <div class="detail-container">
-            <div class="detail-img-holder">
-                <div class="watermark"><div class="watermark-text">Gino Tuesta</div></div>
-                <img id="detail-img" src="">
+    <section class="container" id="folder-view">
+        <span class="back-link" onclick="location.reload()">← Volver a categorías</span>
+        <h2 class="section-title" id="folder-title">Carpeta</h2>
+        <div class="main-grid" id="folder-grid">
             </div>
-            <div class="detail-info">
-                <h3 id="detail-title"></h3>
-                <div class="price-item"><span>Licencia Personal</span><strong>$5.00</strong></div>
-                <div class="price-item"><span>Licencia Editorial</span><strong>$50.00</strong></div>
-                <button class="btn">Comprar Licencia</button>
-                <p style="margin-top: 20px; text-align: center; cursor: pointer;" onclick="hideDetail()">[ Volver ]</p>
+    </section>
+
+    <section class="container" id="buy-view">
+        <span class="back-link" id="back-to-folder">← Volver a la galería</span>
+        <div class="buy-container">
+            <div class="img-preview">
+                <div class="watermark">Gino Tuesta</div>
+                <img id="final-img" src="" style="width:100%">
+            </div>
+            <div class="price-box">
+                <h3 id="photo-name" style="margin-bottom:20px; font-family:var(--font-serif)">Nombre de la Foto</h3>
+                <div class="price-option"><span>Licencia Personal</span><strong>$5.00</strong></div>
+                <div class="price-option"><span>Licencia Editorial</span><strong>$50.00</strong></div>
+                <button class="btn" style="width:100%; margin-top:30px; background:var(--accent-color); color:white">Comprar Ahora</button>
             </div>
         </div>
     </section>
 
     <footer>
+        <div class="footer-socials">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:tuemail@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
         <p>&copy; 2026 Gino Tuesta Photographer. Todos los derechos reservados.</p>
     </footer>
 
     <script>
-        function showPhotoDetail(category, imgSrc, title) {
-            document.getElementById('galerias').style.display = 'none';
-            document.getElementById('inicio').style.display = 'none';
-            document.getElementById('detail-img').src = imgSrc;
-            document.getElementById('detail-title').innerText = title;
-            document.getElementById('photo-detail-view').style.display = 'block';
-            window.scrollTo(0, 0);
+        // Simulador de fotos por categoría (Usa imágenes de stock para el ejemplo)
+        const photoData = {
+            'Paisajes': 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=400',
+            'Personas': 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400',
+            'Animales': 'https://images.unsplash.com/photo-1472393365320-2c1f5a507850?q=80&w=400',
+            'Aérea': 'https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?q=80&w=400'
+        };
+
+        function openFolder(category) {
+            document.getElementById('hero-main').style.display = 'none';
+            document.getElementById('folders').style.display = 'none';
+            document.getElementById('folder-view').style.display = 'block';
+            document.getElementById('folder-title').innerText = category;
+            
+            const grid = document.getElementById('folder-grid');
+            grid.innerHTML = ''; // Limpiar
+
+            // Generar 10 fotos "ficticias"
+            for(let i=1; i<=10; i++) {
+                const imgUrl = photoData[category] + '&sig=' + i; // Sig para que sean fotos algo distintas
+                grid.innerHTML += `
+                    <div class="card" onclick="openBuy('${imgUrl}', '${category} #${i}')">
+                        <img src="${imgUrl}" style="height:250px">
+                        <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:white; opacity:0.3; font-weight:bold; pointer-events:none">GINO TUESTA</div>
+                    </div>
+                `;
+            }
+            window.scrollTo(0,0);
         }
-        function hideDetail() {
-            document.getElementById('galerias').style.display = 'block';
-            document.getElementById('inicio').style.display = 'flex';
-            document.getElementById('photo-detail-view').style.display = 'none';
+
+        function openBuy(url, title) {
+            document.getElementById('folder-view').style.display = 'none';
+            document.getElementById('buy-view').style.display = 'block';
+            document.getElementById('final-img').src = url;
+            document.getElementById('photo-name').innerText = title;
+            
+            document.getElementById('back-to-folder').onclick = function() {
+                document.getElementById('buy-view').style.display = 'none';
+                document.getElementById('folder-view').style.display = 'block';
+            };
+            window.scrollTo(0,0);
         }
     </script>
 </body>
