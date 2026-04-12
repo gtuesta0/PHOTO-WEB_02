@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Venta de fotografías de alta calidad: naturaleza, fauna, paisajes y cultura. Capturando la esencia de la biodiversidad y la conservación.">
+    <title>Fotografía de Naturaleza y Conservación | Portafolio y Tienda</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Variables de Color y Estilo (Azul Marino y Blanco) --- */
+        :root {
+            --bg-color: #FFFFFF;
+            --text-color: #0A192F;
+            --accent-green: #112240;
+            --earth-tone: #4A5568;
+            --light-gray: #E2E8F0;
+            --font-main: 'Montserrat', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        /* --- Reset y Estilos Base --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-main); color: var(--text-color); background-color: var(--bg-color); line-height: 1.6; }
+        h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; }
+        a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+        img { max-width: 100%; display: block; }
+        
+        /* --- Botones --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--accent-green);
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            border-radius: 0px;
+            transition: background 0.3s ease;
+        }
+        .btn:hover { background-color: #060e1c; }
+        .btn-outline { background: transparent; border: 1px solid var(--accent-green); color: var(--accent-green); }
+        .btn-outline:hover { background: var(--accent-green); color: white; }
+
+        /* --- Navegación --- */
+        header { padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; background: white; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--light-gray); }
+        .logo { font-size: 1.5rem; font-family: var(--font-serif); font-weight: bold; letter-spacing: 2px; }
+        nav ul { list-style: none; display: flex; gap: 30px; }
+        nav a:hover { color: var(--earth-tone); }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 85vh;
+            background: linear-gradient(rgba(10, 25, 47, 0.6), rgba(10, 25, 47, 0.6)), url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+        .hero-content h1 { font-size: 3.5rem; margin-bottom: 20px; }
+        .hero-content p { font-size: 1.2rem; margin-bottom: 30px; font-weight: 300; }
+
+        /* --- Barra de Confianza --- */
+        .trust-bar {
+            background-color: var(--bg-color);
+            padding: 40px 20px;
+            border-bottom: 1px solid var(--light-gray);
+            text-align: center;
+        }
+        .trust-bar p {
+            font-family: var(--font-main);
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--earth-tone);
+            margin: 0;
+        }
+
+        /* --- Contenedor General --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: var(--text-color); }
+
+        /* --- Galería y Tienda --- */
+        .categories { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
+        .category-tag { cursor: pointer; padding: 8px 20px; border: 1px solid var(--light-gray); border-radius: 0px; font-size: 0.9rem; transition: all 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+        .category-tag.active, .category-tag:hover { background-color: var(--text-color); color: white; border-color: var(--text-color); }
+
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+        
+        /* Efecto de Zoom y líneas rectas */
+        .photo-card { 
+            background: white; 
+            padding: 15px; 
+            border: 1px solid var(--light-gray); 
+            border-radius: 0px; 
+            overflow: hidden; 
+            transition: border-color 0.3s ease;
+        }
+        .photo-card-img-container {
+            overflow: hidden;
+            width: 100%;
+        }
+        .photo-card img {
+            transition: transform 0.6s ease; 
+        }
+        .photo-card:hover { border-color: var(--text-color); }
+        .photo-card:hover img { transform: scale(1.05); }
+
+        .photo-info { padding-top: 15px; text-align: center; }
+        .photo-title { font-size: 1.1rem; margin-bottom: 5px; font-weight: 600; }
+        .photo-price { color: var(--earth-tone); font-weight: bold; margin-bottom: 15px; }
+        
+        .purchase-options { display: flex; gap: 10px; margin-bottom: 15px; }
+        .purchase-options select { width: 100%; padding: 8px; border: 1px solid var(--light-gray); font-family: var(--font-main); border-radius: 0px; }
+
+        /* --- Sobre el Fotógrafo --- */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .about-text h2 { margin-bottom: 20px; font-size: 2rem; }
+        .about-text p { margin-bottom: 15px; color: var(--earth-tone); }
+
+        /* --- Testimonios --- */
+        .testimonials { background-color: var(--accent-green); color: white; padding: 80px 20px; text-align: center; }
+        .testimonial-card { max-width: 600px; margin: 0 auto; font-style: italic; font-family: var(--font-serif); font-size: 1.2rem; }
+
+        /* --- Contacto --- */
+        .contact-form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 15px; border: 1px solid var(--light-gray); font-family: var(--font-main); border-radius: 0px; }
+        .contact-form textarea { height: 150px; resize: none; }
+
+        /* --- Footer y Legales --- */
+        footer { background-color: #050d1a; color: white; padding: 60px 5% 20px; font-size: 0.9rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h3 { font-family: var(--font-main); font-size: 1.1rem; margin-bottom: 20px; color: #8892b0; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: #ccd6f6; }
+        .footer-col ul li a:hover { color: white; }
+        .payment-icons { display: flex; gap: 10px; margin-top: 15px; }
+        .payment-icons span { background: #112240; padding: 5px 10px; border-radius: 0px; font-size: 0.8rem; border: 1px solid #233554; }
+        .copyright { text-align: center; color: #8892b0; padding-top: 20px; border-top: 1px solid #112240; }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; }
+            nav ul { display: none; }
+            .hero-content h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">WILDLENS</div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>La Naturaleza en su Forma más Pura</h1>
+            <p>Fotografías de alta resolución para coleccionistas, editoriales y amantes de la conservación.</p>
+            <a href="#galeria" class="btn">Explorar Galería</a>
+        </div>
+    </section>
+
+    <div class="trust-bar">
+        <p>15 años de conservación • Envíos Internacionales • Impresiones Fine Art</p>
+    </div>
+
+    <section class="container" id="galeria">
+        <h2 class="section-title">Colección Destacada</h2>
+        
+        <div class="categories">
+            <span class="category-tag active">Todo</span>
+            <span class="category-tag">Paisajes</span>
+            <span class="category-tag">Fauna Salvaje</span>
+            <span class="category-tag">Cultura Local</span>
+            <span class="category-tag">Aérea (Drone)</span>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="photo-card">
+                <div class="photo-card-img-container">
+                    <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Fotografía de fauna en su hábitat natural">
+                </div>
+                <div class="photo-info">
+                    <h3 class="photo-title">Mirada Profunda</h3>
+                    <p class="photo-price">Desde $45.00 USD</p>
+                    <div class="purchase-options">
+                        <select>
+                            <option value="digital">Licencia Digital (Uso Personal)</option>
+                            <option value="digital-com">Licencia Digital (Comercial)</option>
+                            <option value="print-a4">Impresión Física A4</option>
+                        </select>
+                    </div>
+                    <div id="paypal-button-container-foto1"></div>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <div class="photo-card-img-container">
+                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Paisaje de selva y niebla">
+                </div>
+                <div class="photo-info">
+                    <h3 class="photo-title">Amanecer en la Cuenca</h3>
+                    <p class="photo-price">Desde $30.00 USD</p>
+                    <div class="purchase-options">
+                        <select>
+                            <option value="digital">Licencia Digital (Uso Personal)</option>
+                            <option value="print-a4">Impresión Física A4</option>
+                        </select>
+                    </div>
+                    <button class="btn" style="width: 100%;">Añadir al Carrito</button>
+                </div>
+            </div>
+            
+            <div class="photo-card">
+                <div class="photo-card-img-container">
+                    <img src="https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Vista aérea de un río serpenteante">
+                </div>
+                <div class="photo-info">
+                    <h3 class="photo-title">Venas de la Tierra (Drone)</h3>
+                    <p class="photo-price">Desde $60.00 USD</p>
+                    <div class="purchase-options">
+                        <select>
+                            <option value="digital">Licencia Digital (Uso Personal)</option>
+                            <option value="digital-com">Licencia Digital (Comercial)</option>
+                            <option value="print-a3">Impresión Física A3 + Marco</option>
+                        </select>
+                    </div>
+                    <button class="btn" style="width: 100%;">Añadir al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="sobre-mi">
+        <div class="about-grid">
+            <div>
+                <img src="https://images.unsplash.com/photo-1552168324-d612d77725e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fotógrafo trabajando en la naturaleza">
+            </div>
+            <div class="about-text">
+                <h2>Detrás del Lente</h2>
+                <p>Con más de una década de experiencia documentando ecosistemas vulnerables, mi objetivo es crear un puente visual entre la humanidad y el mundo salvaje. Cada imagen es un llamado a la acción.</p>
+                <p>Mi trabajo en campo se ha centrado profundamente en la biodiversidad amazónica. Fotografiar y estudiar el comportamiento de especies esquivas, como el mono saki (*Pithecia pithecia*), exige paciencia, precisión y un profundo respeto por su entorno natural.</p>
+                <p>El 15% de todas las ventas físicas se destina directamente a fundaciones enfocadas en la protección de hábitats tropicales.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="testimonial-card">
+            <p>"Las impresiones físicas tienen una calidad insuperable. Los colores son vibrantes y los detalles de la textura capturan la esencia pura del paisaje. Además, saber que apoyo la conservación lo hace aún mejor."</p>
+            <br>
+            <p><strong>- Elena M., Directora de Arte</strong></p>
+        </div>
+    </section>
+
+    <section class="container" id="contacto">
+        <h2 class="section-title">Pedidos Personalizados y Colaboraciones</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Nombre completo" required>
+            <input type="email" placeholder="Correo electrónico" required>
+            <select style="width: 100%; padding: 15px; border: 1px solid var(--light-gray); font-family: var(--font-main); border-radius: 0px;">
+                <option value="info">Información sobre licencias comerciales</option>
+                <option value="print">Pedido de impresión en formato especial</option>
+                <option value="collab">Propuesta de proyecto / Expedición</option>
+            </select>
+            <textarea placeholder="Cuéntame sobre tu proyecto o duda..." required></textarea>
+            <button type="submit" class="btn">Enviar Mensaje</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Información Legal</h3>
+                <ul>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Política de Devoluciones (Impresos)</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Licencias de Uso</h3>
+                <ul>
+                    <li><a href="#">Licencia Personal</a></li>
+                    <li><a href="#">Licencia Comercial</a></li>
+                    <li><a href="#">Uso Editorial</a></li>
+                    <li><a href="#">Información sobre Derechos de Autor (Copyright)</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Métodos de Pago Seguros</h3>
+                <p style="color: #ccd6f6; margin-bottom: 10px;">Procesamos tus pagos de forma encriptada y segura.</p>
+                <div class="payment-icons">
+                    <span>Visa</span>
+                    <span>MasterCard</span>
+                    <span>PayPal</span>
+                    <span>Apple Pay</span>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Portafolio de Conservación. Todos los derechos reservados. Las imágenes están protegidas por derechos de autor y no pueden ser utilizadas sin la licencia correspondiente.</p>
+        </div>
+    </footer>
+
+    <script src="https://www.paypal.com/sdk/js?client-id=TU_CLIENT_ID_AQUI&currency=USD"></script>
+    <script>
+        paypal.Buttons({
+            style: {
+                color:  'black', 
+                shape:  'rect',
+                label:  'buynow'
+            },
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        description: "Fotografía: Mirada Profunda (Licencia Digital)",
+                        amount: {
+                            value: '45.00' 
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    alert('¡Pago completado con éxito! Gracias por tu compra, ' + details.payer.name.given_name + '. Te enviaremos el enlace de descarga a tu correo.');
+                });
+            }
+        }).render('#paypal-button-container-foto1');
+    </script>
+
+</body>
+</html>
