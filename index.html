@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gino Tuesta | Biología & Narrativa Visual</title>
+    <title>Gino Tuesta | Fotografía de Conservación</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -21,36 +21,54 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: var(--font-main); color: var(--text-color); background: var(--bg-color); line-height: 1.7; }
         
+        /* --- CABECERA --- */
         header { padding: 30px 8%; display: flex; justify-content: space-between; align-items: center; background: white; border-bottom: 1px solid #EEE; position: sticky; top: 0; z-index: 1000; }
         .logo { font-size: 1.8rem; font-family: var(--font-serif); text-transform: uppercase; letter-spacing: 2px; line-height: 0.9; cursor: pointer; }
         .logo span { display: block; font-family: var(--font-main); font-size: 0.65rem; letter-spacing: 6px; font-weight: 300; color: var(--subtle-text); margin-top: 5px; }
         .social-nav a { margin-left: 20px; color: var(--text-color); font-size: 1.1rem; transition: 0.3s; opacity: 0.7; }
 
+        /* --- PORTADA MEJORADA --- */
         .hero {
             height: 90vh;
             background: linear-gradient(rgba(10, 25, 47, 0.4), rgba(10, 25, 47, 0.6)), url('mi-portada.jpg') center/cover no-repeat;
             display: flex; align-items: center; justify-content: center; text-align: center; color: white;
         }
-        .hero h1 { font-size: 4.5rem; font-family: var(--font-serif); font-weight: 400; letter-spacing: -2px; }
-        .hero p { font-size: 1.1rem; font-weight: 300; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 10px; }
+        .hero h1 { font-size: 4.5rem; font-family: var(--font-serif); font-weight: 400; letter-spacing: -1px; margin-bottom: 10px; }
+        .hero p { font-size: 1rem; font-weight: 300; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 5px; }
         .btn-scroll { margin-top: 40px; background: white; color: var(--text-color); padding: 15px 40px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; font-weight: 600; text-decoration: none; transition: 0.3s; border: 1px solid white; display: inline-block; }
+        .btn-scroll:hover { background: transparent; color: white; }
 
-        .about-section { padding: 120px 8%; background: var(--light-bg); display: flex; align-items: center; gap: 80px; flex-wrap: wrap; }
-        .about-img { flex: 1; min-width: 350px; }
-        .about-img img { width: 100%; filter: grayscale(100%); border: 1px solid #ddd; padding: 10px; background: white; }
-        .about-text { flex: 1.5; min-width: 350px; }
-        .about-text h2 { font-size: 2.8rem; font-family: var(--font-serif); margin-bottom: 30px; position: relative; }
-        .about-text h2::after { content: ''; display: block; width: 50px; height: 1px; background: var(--text-color); margin-top: 15px; }
-        .about-text p { font-size: 1.1rem; color: var(--subtle-text); margin-bottom: 25px; max-width: 700px; }
+        /* --- SECCIÓN SOBRE MÍ --- */
+        .about-section { padding: 100px 8%; background: var(--light-bg); display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
+        .about-img { flex: 1; min-width: 320px; }
+        .about-img img { width: 100%; filter: grayscale(100%); border: 1px solid #ddd; padding: 10px; background: white; transition: 0.5s; }
+        .about-img:hover img { filter: grayscale(0%); }
+        .about-text { flex: 1.5; min-width: 320px; }
+        .about-text h2 { font-size: 2.5rem; font-family: var(--font-serif); margin-bottom: 25px; color: var(--text-color); }
+        .about-text p { font-size: 1.1rem; color: var(--subtle-text); max-width: 650px; }
 
-        .section-container { padding: 100px 8%; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .folder-card { position: relative; height: 500px; overflow: hidden; cursor: pointer; background: black; }
-        .folder-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: 0.8s; }
-        .folder-card:hover img { transform: scale(1.1); opacity: 0.6; }
-        .folder-overlay { position: absolute; bottom: 40px; left: 40px; color: white; }
+        /* --- COLECCIONES (ESTILO PROFESIONAL) --- */
+        .section-container { padding: 80px 8%; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-family: var(--font-serif); font-size: 2.2rem; text-transform: uppercase; letter-spacing: 5px; }
+        
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
+        .folder-card { position: relative; height: 550px; overflow: hidden; cursor: pointer; background: #000; }
+        .folder-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
+        .folder-card:hover img { transform: scale(1.08); opacity: 0.6; }
+        
+        .folder-overlay { 
+            position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px; 
+            background: linear-gradient(transparent, rgba(0,0,0,0.7)); color: white; 
+        }
+        .folder-overlay h3 { font-size: 1.6rem; font-family: var(--font-serif); letter-spacing: 1px; font-weight: 400; }
+        .folder-overlay span { font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.8; }
 
-        footer { padding: 80px 8% 40px; background: #050d1a; color: white; text-align: center; }
+        /* --- FOOTER --- */
+        footer { padding: 60px 8%; background: #050d1a; color: white; text-align: center; }
+        .copy { font-size: 0.7rem; opacity: 0.4; letter-spacing: 1px; text-transform: uppercase; margin-top: 30px; }
+        
+        /* Vistas ocultas */
         #folder-view, #buy-view { display: none; }
     </style>
 </head>
@@ -61,15 +79,15 @@
         <div class="social-nav">
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="mailto:tu-correo@ejemplo.com"><i class="far fa-envelope"></i></a>
+            <a href="mailto:gino@tuesta.com"><i class="far fa-envelope"></i></a>
         </div>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="hero-content">
-            <p>Enfocando la naturaleza</p>
-            <h1>Mirada Amazónica</h1>
-            <a href="#folders" class="btn-scroll">Explorar Archivo</a>
+            <p>Fotografía de conservación</p>
+            <h1>Enfoque Natural</h1>
+            <a href="#folders" class="btn-scroll">Explorar colección</a>
         </div>
     </section>
 
@@ -78,59 +96,57 @@
             <img src="mi-mirada.jpg" alt="Gino Tuesta">
         </div>
         <div class="about-text">
-            <h2>Sobre mi mirada</h2>
+            <h2>Sobre mí</h2>
             <p>
-                Como biólogo con amplia experiencia en la <strong>gestión y conservación de áreas naturales protegidas</strong>, mi trabajo se fundamenta en el desarrollo sostenible y la investigación científica con un enfoque intercultural profundo, colaborando directamente con <strong>comunidades locales e indígenas</strong> a lo largo de la costa, los andes y la amazonía peruana.
+                Fotógrafo de conservación apasionado por retratar la riqueza natural del Perú. Mi trabajo une la divulgación científica con la experiencia en áreas naturales protegidas, transformando el conocimiento técnico en imágenes que conectan, inspiran y generan conciencia. 
             </p>
+            <br>
             <p>
-                Entiendo la <strong>fotografía de conservación</strong> como una herramienta técnica y narrativa vital; por ello, mis registros han sido parte de diversas <strong>publicaciones científicas y revistas de divulgación</strong>, traduciendo la complejidad técnica en mensajes visuales de alto impacto. 
-            </p>
-            <p>
-                A través del uso de tecnología de vanguardia y drones, busco realzar el valor del patrimonio natural peruano, creando materiales comunicacionales que fundamenten y promuevan la protección de nuestros ecosistemas a nivel nacional.
+                A través de la fotografía, busco visibilizar nuestros ecosistemas y aportar activamente a su valoración y protección.
             </p>
         </div>
     </section>
 
     <section class="section-container" id="folders">
-        <div style="text-align: center; margin-bottom: 60px;">
-            <h2 style="font-family: var(--font-serif); font-size: 2.5rem; text-transform: uppercase; letter-spacing: 4px;">Colecciones</h2>
+        <div class="section-header">
+            <h2>Colecciones</h2>
         </div>
         <div class="gallery-grid">
             <div class="folder-card" onclick="openFolder('Paisajes')">
                 <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800">
-                <div class="folder-overlay"><h3>Paisajes</h3></div>
+                <div class="folder-overlay"><span>Explorar</span><h3>Paisajes</h3></div>
             </div>
             <div class="folder-card" onclick="openFolder('Personas')">
                 <img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=800">
-                <div class="folder-overlay"><h3>Personas</h3></div>
+                <div class="folder-overlay"><span>Explorar</span><h3>Personas</h3></div>
             </div>
             <div class="folder-card" onclick="openFolder('Animales')">
                 <img src="https://images.unsplash.com/photo-1543946207-39bd91e70ca7?q=80&w=800">
-                <div class="folder-overlay"><h3>Animales</h3></div>
-            </div>
-            <div class="folder-card" onclick="openFolder('Aérea')">
-                <img src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?q=80&w=800">
-                <div class="folder-overlay"><h3>Aérea</h3></div>
+                <div class="folder-overlay"><span>Explorar</span><h3>Animales</h3></div>
             </div>
         </div>
     </section>
 
     <section id="folder-view" class="section-container">
-        <div style="cursor:pointer; margin-bottom:30px" onclick="location.reload()">← Volver</div>
-        <h2 id="folder-title" style="font-family: var(--font-serif); font-size: 2rem; margin-bottom: 40px;"></h2>
+        <div style="cursor:pointer; margin-bottom:30px; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;" onclick="location.reload()">← Regresar</div>
+        <h2 id="folder-title" style="font-family: var(--font-serif); font-size: 2.2rem; margin-bottom: 40px;"></h2>
         <div class="gallery-grid" id="folder-grid"></div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Gino Tuesta. Todos los derechos reservados.</p>
+        <div class="logo" style="color: white; margin-bottom: 20px;">Gino Tuesta</div>
+        <div class="social-nav" style="margin-top: 0;">
+            <a href="#" style="color: white;"><i class="fab fa-instagram"></i></a>
+            <a href="#" style="color: white;"><i class="fab fa-facebook-f"></i></a>
+        </div>
+        <p class="copy">&copy; 2026 Gino Tuesta. Todos los derechos reservados.</p>
     </footer>
 
     <script>
         const photoData = {
             'Paisajes': 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=600',
             'Personas': 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600',
-            'Animales': 'https://images.unsplash.com/photo-1472393365320-2c1f5a507850?q=80&w=600',
-            'Aérea': 'https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?q=80&w=600'
+            'Animales': 'https://images.unsplash.com/photo-1472393365320-2c1f5a507850?q=80&w=600'
         };
 
         function openFolder(category) {
@@ -140,7 +156,7 @@
             const grid = document.getElementById('folder-grid');
             grid.innerHTML = '';
             for(let i=1; i<=12; i++) {
-                grid.innerHTML += `<div class="folder-card" style="height:350px"><img src="${photoData[category]}&sig=${i}"></div>`;
+                grid.innerHTML += `<div class="folder-card" style="height:350px"><img src="${photoData[category]}&sig=${i}"><div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:white; opacity:0.1; font-weight:bold; letter-spacing:5px; font-size: 0.8rem;">GINO TUESTA</div></div>`;
             }
             window.scrollTo(0,0);
         }
