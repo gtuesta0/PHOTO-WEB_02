@@ -71,6 +71,39 @@
         .rights-box { padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; opacity: 0.5; letter-spacing: 1px; text-transform: uppercase; }
 
         #sub-view, #full-view { display: none; }
+        /* --- AJUSTES PARA CELULAR Y TABLET (RESPONSIVE) --- */
+        @media (max-width: 768px) {
+            /* Ajuste del Header */
+            header { padding: 20px 5%; flex-direction: column; gap: 15px; }
+            .nav-right { width: 100%; justify-content: center; flex-wrap: wrap; }
+            .search-box { width: 100%; order: 2; }
+            
+            /* Ajuste de Textos Hero */
+            .hero h1 { font-size: 2.5rem; }
+            
+            /* Ajuste Sección Sobre Mí */
+            .about-section { padding: 50px 5%; flex-direction: column; text-align: center; }
+            .about-text h2 { text-align: center; font-size: 2.2rem; }
+            .about-img img { max-width: 100%; margin: 0 auto; }
+
+            /* Carpetas una debajo de otra */
+            .gallery-grid { grid-template-columns: 1fr; } 
+            .folder-card { height: 400px; }
+
+            /* Sección de Contacto */
+            .contact-container { grid-template-columns: 1fr; gap: 40px; padding: 0 5%; }
+            .contact-info h2 { font-size: 2.2rem; text-align: center; }
+            
+            /* Modal de Previsualización */
+            .modal-content { width: 95%; margin: 20px auto; flex-direction: column; }
+            .modal-info { padding: 20px; }
+            
+            /* Ajuste para las miniaturas de las regiones (Costa, Sierra, Selva) */
+            div[style*="grid-template-columns:repeat(5,1fr)"] {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 5px !important;
+            }
+        }
     </style>
 </head>
 <body>
