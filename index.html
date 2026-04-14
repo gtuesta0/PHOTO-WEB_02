@@ -225,11 +225,11 @@
             grid.innerHTML = '';
             const cf = cat.toLowerCase(); const rf = reg.toLowerCase();
             for(let i=1; i<=10; i++) {
-                const ruta = `galeria/${cf}/${rf}-${i}.jpg`;
-                grid.innerHTML += `
-                    <div class="folder-card" style="height:350px; position:relative;" onclick="openPreview('${ruta}')">
-                        <img src="${ruta}" onerror="this.src='https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=800&sig=${i}'">
-                    </div>`;
+               const ruta = `galeria/${cf}/${rf}-${i}.jpg?u=${Math.random()}`; // Agregamos el "u=" aleatorio
+grid.innerHTML += `
+    <div class="folder-card" style="height:350px; position:relative;" onclick="openPreview('${ruta}')">
+        <img src="${ruta}" onerror="this.src='https://via.placeholder.com/400?text=Cargando...'">
+    </div>`;
             }
         }
 
